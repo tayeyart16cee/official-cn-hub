@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简明指南 · 世界杯 | 2026 官方信息页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf9f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e1e1e;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 720px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 0.5rem;
+        }
+
+        /* 主视觉 — 极简留白卡片 */
+        .hero-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 3rem 2rem 2.8rem;
+            margin: 0.5rem 0 2.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+
+        .hero-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .hero-card h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
+            color: #111;
+            line-height: 1.2;
+        }
+
+        .hero-card .subhead {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            max-width: 480px;
+            margin: 0 auto 1.6rem;
+            font-weight: 350;
+        }
+
+        .hero-meta {
+            display: inline-block;
+            background: #f0ede6;
+            border-radius: 40px;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.8rem;
+            color: #4f4f4f;
+            letter-spacing: 0.3px;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.6rem;
+            margin: 2rem 0 2.8rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+            border: 1px solid #f1efe9;
+            transition: transform 0.15s, border-color 0.2s;
+        }
+
+        .card:hover {
+            border-color: #d6d1c8;
+            transform: translateY(-2px);
+        }
+
+        .card h2,
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 480;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.01em;
+            color: #1a1a1a;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #3a3a3a;
+            margin-bottom: 0.6rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.6rem 0 0;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 1.3rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.92rem;
+            color: #333;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #9a8f7f;
+            font-weight: 700;
+        }
+
+        /* 自然链接段落 */
+        .linked-paragraph {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 1.8rem;
+            margin: 1.8rem 0 2rem;
+            border: 1px solid #f1efe9;
+        }
+
+        .linked-paragraph p {
+            font-size: 1rem;
+            margin-bottom: 1.1rem;
+            color: #2c2c2c;
+        }
+
+        .linked-paragraph strong {
+            font-weight: 500;
+            color: #111;
+        }
+
+        .linked-paragraph a {
+            color: #1e3a5f;
+            text-decoration: none;
+            border-bottom: 1px solid #cbc6bb;
+            transition: border-color 0.15s, color 0.15s;
+            font-weight: 400;
+        }
+
+        .linked-paragraph a:hover {
+            border-bottom-color: #1e3a5f;
+            color: #0a1c2e;
+        }
+
+        /* FAQ 摘要区 */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.6rem 1.8rem 2rem;
+            border: 1px solid #f1efe9;
+            margin: 2rem 0 1.8rem;
+        }
+
+        .faq-summary h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            letter-spacing: -0.2px;
+        }
+
+        .faq-item {
+            margin-bottom: 0.9rem;
+        }
+
+        .faq-item .q {
+            font-weight: 460;
+            font-size: 0.95rem;
+            color: #1e1e1e;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-item .a {
+            font-size: 0.88rem;
+            color: #4f4f4f;
+            padding-left: 0.2rem;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #8b8579;
+            border-top: 1px solid #ece8e0;
+            padding-top: 1.8rem;
+        }
+
+        /* 响应式 */
+        @media (min-width: 600px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.8rem;
+            }
+
+            .hero-card h1 {
+                font-size: 3rem;
+            }
+
+            .linked-paragraph {
+                padding: 2.2rem 2.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .hero-card {
+                padding: 2rem 1.2rem;
+            }
+            .hero-card h1 {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- 主视觉 -->
+        <div class="hero-card">
+            <h1>世界杯·简明指南</h1>
+            <p class="subhead">从赛程轮廓到观赛准备，一份帮你理清头绪的实用参考。</p>
+            <span class="hero-meta">基于 2026 官方信息整合</span>
+        </div>
+
+        <!-- 用途卡片 + 适合人群卡片 (两列) -->
+        <div class="card-grid">
+            <div class="card">
+                <h2>🗺️ 用于什么</h2>
+                <p>无论你是初次关注，还是想快速回顾本届世界杯的基本框架，这里提供聚合式信息索引，覆盖赛制、场馆群、购票阶段等关键环节，避免信息碎片化。</p>
+                <ul>
+                    <li>赛程与分组逻辑</li>
+                    <li>主办城市及球场分布</li>
+                    <li>票务阶段与官方提醒</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>👥 适合人群</h2>
+                <p>计划现场观赛的球迷、希望跟进赛事动态的爱好者、以及需要快速了解本届世界杯亮点的媒体或从业者。不预设专业门槛，按需查阅即可。</p>
+                <ul>
+                    <li>自由行观赛者</li>
+                    <li>赛事内容创作者</li>
+                    <li>好奇的路人球迷</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 自然链接段落（嵌入“世界杯”链接） -->
+        <div class="linked-paragraph">
+            <p><strong>从一处可靠起点开始。</strong> 围绕 2026 年世界杯的各类信息正在逐步发布，赛程确认、票务窗口、旅行建议都应以官方口径为准。建议将 <a href="https://official-cn-fifa2026.com">世界杯</a> 加入书签，作为你获取一手信息的固定锚点。这里不堆砌未经核实的传闻，只聚焦经确认的框架性内容，帮助你建立正确的期待。</p>
+            <p>很多球迷会提前一年开始规划行程，而实用的第一步往往是厘清本届世界杯的结构变化：48 支球队、16 个主办城市、104 场比赛——数字背后是更分散的赛区和更长的赛程跨度。了解这些基础参数，后续的选场、住宿、交通计划才会更合理。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-summary">
+            <h3>常见疑问摘要</h3>
+            <div class="faq-item">
+                <div class="q">▪ 本届世界杯的举办时间大致在何时？</div>
+                <div class="a">2026 年世界杯定于北半球夏季举行，具体开闭幕日期以官方最终公布为准，目前已知赛程跨度约五周。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">▪ 门票什么时候开始发售？</div>
+                <div class="a">官方售票通常分阶段进行，第一阶段为随机抽签申请，后续有先到先得及最后时刻售票。具体日期、注册要求请留意官方渠道。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">▪ 需要特别留意哪些访问提醒？</div>
+                <div class="a">持票人需提前办理相应国家的旅行证件（签证或电子旅行授权），并关注球场安检规定、行李限制及当地交通管制信息。</div>
+            </div>
+        </div>
+
+        <!-- 简短提示 -->
+        <p style="font-size: 0.92rem; color: #5a554b; line-height: 1.5; margin: 0.2rem 0 2rem; padding: 0 0.2rem;">
+            💡 随着赛事临近，官方会陆续发布更详细的场馆指南、球迷体验计划以及转播安排。保持信息来源的单一权威性能帮你过滤大量噪音。
+        </p>
+
+        <div class="footer-note">
+            © 内容参考自公开信息 · 页面仅作指引用途
+        </div>
+    </div>
+</body>
+</html>
